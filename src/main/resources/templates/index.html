@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <title>Formularz</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div >
+    <p>Welcome, <span sec:authentication="name"></span>!</p>
+    <a th:href="@{/logout}" th:method="post">Logout</a>
+</div>
+<div class="container">
+    <h1>Formularz</h1>
+    <form action="/submit" method="post">
+        <div class="form-group">
+            <label for="data">Dane:</label>
+            <input type="text" class="form-control" id="data" name="data" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Wyślij</button>
+    </form>
+</div>
+</body>
+</html>
