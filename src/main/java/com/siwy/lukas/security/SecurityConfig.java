@@ -29,7 +29,6 @@ public class SecurityConfig {
                 .formLogin(Customizer.withDefaults())
                 .logout((logout) -> logout
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/login?logout")
                         .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID")
                         .permitAll()
