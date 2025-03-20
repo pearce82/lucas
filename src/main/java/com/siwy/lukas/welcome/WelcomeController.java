@@ -11,12 +11,12 @@ public class WelcomeController {
 
     @RequestMapping("/")
     public String showForm() {
-        return "index";
+        return "welcome/index";
     }
 
     @PostMapping("/submit")
     public String submitForm(@RequestParam("data") String data, Model model) {
         model.addAttribute("data", data);
-        return "result";
+        return "welcome/result";
     }
  }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <title>Checkbox Form</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<form th:action="@{/work}" method="post">
+    <label for="groupSelect">Select Time Group:</label>
+    <select id="groupSelect" name="timeGroup" onchange="this.form.submit()">
+        <option value="0" th:selected="${selectedGroup == 0}">0 - 8</option>
+        <option value="1" th:selected="${selectedGroup == 1}">8 - 16</option>
+        <option value="2" th:selected="${selectedGroup == 2}">16 - 24</option>
+    </select>
+</form>
+
+<form th:action="@{/work/submitCheckboxes}" method="post">
+    <input type="hidden" name="timeGroup" th:value="${selectedGroup}" />
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Item/Time</th>
+            <th th:each="hour : ${#numbers.sequence(selectedGroup * 8, (selectedGroup + 1) * 8 - 1)}" th:text="|${hour}:00 - ${hour + 1}:00|">Hour</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${#numbers.sequence(1, 5)}">
+            <td th:text="|Item ${item}|">Item</td>
+            <td th:each="hour : ${#numbers.sequence(selectedGroup * 8, (selectedGroup + 1) * 8 - 1)}">
+                <input type="checkbox" th:name="|checkboxes[${hour}][15]|" />
+                <input type="checkbox" th:name="|checkboxes[${hour}][30]|" />
+                <input type="checkbox" th:name="|checkboxes[${hour}][45]|" />
+                <input type="checkbox" th:name="|checkboxes[${hour}][60]|" />
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>
