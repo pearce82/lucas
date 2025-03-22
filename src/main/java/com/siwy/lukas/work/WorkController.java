@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -12,6 +14,8 @@ public class WorkController {
 
     @RequestMapping(value = "", method = {RequestMethod.GET, RequestMethod.POST})
     public String showForm(Model model, @RequestParam(defaultValue = "0") int timeGroup) {
+        List<String> timetable = Arrays.asList("Praca", "Opierdalam się", "Zesrała się maszyna", "Ustanwiam maszynę", "Naprawiam maszynę");
+        model.addAttribute("timetable", timetable);
         model.addAttribute("selectedGroup", timeGroup);
         return "work/index";
     }
@@ -22,6 +26,6 @@ public class WorkController {
         int selectedGroup = Integer.parseInt(allParams.get("timeGroup"));
         model.addAttribute("selectedGroup", selectedGroup);
 
-        return "work/checkboxResult";
+        return "redirect:/work";
     }
 }

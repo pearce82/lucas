@@ -11,7 +11,8 @@ public class WelcomeController {
 
     @RequestMapping("/")
     public String showForm() {
-        return "welcome/index";
+        //return "welcome/index";
+        return "redirect:/work";
     }
 
     @PostMapping("/submit")

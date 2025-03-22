@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+label {
+    font-size: 16px;
+}
+input[type=text] {
+    font-size: 16px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+select {
+    font-size: 16px;
+    margin-left: 10px;
+    padding: 5px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Add space between table and button */
+}
+th, td {
+    border: 1px solid #dddddd;
+    text-align: center;  /* Center headers and table cells */
+    padding: 8px;
+}
+th {
+    background-color: #f2f2f2;
+}
+.additional-inputs {
+    display: flex;
+    justify-content: flex-end; /* Align additional inputs to the right */
+    align-items: center;
+    margin-bottom: 20px; /* Add space between additional inputs and button */
+    gap: 20px; /* Add space between input fields */
+}
+.additional-inputs label, .additional-inputs input {
+    margin-right: 10px;
+}
+.additional-inputs input {
+    width: auto; /* Ensure inputs don't take the whole width */
+}
+div.button-container-right {
+    display: flex;
+    justify-content: flex-end; /* Align the button to the right */
+    margin-top: 20px;
+}
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:hover {
+    background-color: #45a049;
+}
